@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNoticiasTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNoticiasTable extends Migration
      */
     public function up()
     {
-        Schema::create('noticias', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -30,6 +30,6 @@ class CreateNoticiasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('noticias');
+        Schema::dropIfExists('posts');
     }
 }

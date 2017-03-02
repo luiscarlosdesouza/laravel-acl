@@ -2,16 +2,18 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+    @forelse($posts as $post)
+    <h1>{{$post->title}}</h1>
+    <p>{{$post->description}}</p><br>
+    <b>Author: {{$post->user->name}}</b>
 
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+    <hr>
+
+
+    @empty
+      <p>Nenhum Post Cadastrado!</p>
+
+
+    @endforelse
 </div>
 @endsection
